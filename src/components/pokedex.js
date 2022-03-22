@@ -6,6 +6,7 @@ import { Container, Button, Card, Row, Modal, Spinner } from "react-bootstrap";
 function Pokedex() {
   // Dataset of Shown Pokemon
   const [pokemon, setPokemon] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // get first set of Pokemon on Page load
   useEffect(() => {
@@ -16,6 +17,7 @@ function Pokedex() {
         PokemonArry.push(response.data);
       }
       setPokemon([...PokemonArry]);
+      setLoading(false);
     };
     GetPokemon();
   }, []);
@@ -25,6 +27,7 @@ function Pokedex() {
     function handleScrollEvent() {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         console.log("you're at the bottom of the page");
+        setLoading(true);
         if (pokemon) {
           let currentpokis = [...pokemon];
           let lastPokemon = currentpokis.length + 1;
@@ -35,6 +38,7 @@ function Pokedex() {
               PokemonArry.push(response.data);
             }
             setPokemon([...currentpokis, ...PokemonArry]);
+            setLoading(false);
           };
           getnewPokemon();
         }
@@ -163,13 +167,6 @@ function Pokedex() {
     <Container className="justify-content-center" fluid>
       <h1>Pokedex</h1>
       <Row className="justify-content-center">
-        {!pokemon && (
-          <>
-            <Spinner animation="grow" />
-            <h1>im Looking for Pokemon!</h1>
-            <Spinner animation="grow" />
-          </>
-        )}
         {pokemon &&
           pokemon.map((e) => {
             return (
@@ -189,6 +186,21 @@ function Pokedex() {
               </Card>
             );
           })}
+        {loading && (
+          <Card
+            className="mx-5 my-5"
+            key="loading"
+            style={{
+              width: "18rem",
+              background: "white",
+              border: "none",
+            }}
+          >
+            <Card.Body>
+              <Spinner animation="grow" />
+            </Card.Body>
+          </Card>
+        )}
       </Row>
     </Container>
   );
