@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Button, Card, Row, Modal, Spinner } from "react-bootstrap";
+import { Container, Button, Card, Row, Modal, Spinner, Image } from "react-bootstrap";
 
 function Pokedex() {
   // Dataset of Shown Pokemon
@@ -128,7 +128,7 @@ function Pokedex() {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    console.log(param);
     // console.log(param.data);
     return (
       <>
@@ -139,6 +139,7 @@ function Pokedex() {
         <Modal show={show} onHide={handleClose} animation={false}>
           <Modal.Header closeButton>
             <Modal.Title>{param.data.name.toUpperCase()}</Modal.Title>
+            <Image src={param.data.sprites.front_default} responsive />
           </Modal.Header>
           <Modal.Body>
             <h6>Details</h6>
@@ -171,7 +172,7 @@ function Pokedex() {
           pokemon.map((e) => {
             return (
               <Card
-                className="mx-5 my-5"
+                className="mx-3 my-3"
                 key={e.id}
                 style={{
                   width: "18rem",
