@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Button, Carousel, Card, Col, Row, Modal } from "react-bootstrap";
+import { Container, Button, Card, Row, Modal } from "react-bootstrap";
 
 function Pokedex() {
   // Dataset of Shown Pokemon
