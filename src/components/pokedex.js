@@ -160,7 +160,7 @@ function Pokedex() {
   }
 
   return (
-    <Container className="pokedex" fluid className="justify-content-center">
+    <Container className="justify-content-center" fluid>
       <h1>Pokedex</h1>
       <Row className="justify-content-center">
         {!pokemon && (
