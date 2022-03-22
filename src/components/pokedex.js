@@ -50,63 +50,61 @@ function Pokedex() {
     };
   }, [pokemon]);
 
-  // get typefunction ( switch that return coler code)
+  // get typefunction ( switch that return color code)
   const getType = (type) => {
+    // eslint-disable-next-line default-case
     switch (type) {
       case "normal":
         return "#A8A77A";
-        break;
       case "fire":
         return "#EE8130";
-        break;
       case "water":
         return "#6390F0";
-        break;
+
       case "electric":
         return "#F7D02C";
-        break;
+
       case "grass":
         return "#7AC74C";
-        break;
+
       case "ice":
         return "#96D9D6";
-        break;
+
       case "fighting":
         return "#C22E28";
-        break;
+
       case "poison":
         return "#A33EA1";
-        break;
+
       case "ground":
         return "#E2BF65";
-        break;
+
       case "flying":
         return "#A98FF3";
-        break;
+
       case "psychic":
         return "#F95587";
-        break;
+
       case "bug":
         return "#A6B91A";
-        break;
+
       case "rock":
         return "#B6A136";
-        break;
+
       case "ghost":
         return "#735797";
-        break;
+
       case "dragon":
         return "#6F35FC";
-        break;
+
       case "dark":
         return "#705746";
-        break;
+
       case "steel":
         return "#B7B7CE";
-        break;
+
       case "fairy":
         return "#D685AD";
-        break;
     }
   };
 
