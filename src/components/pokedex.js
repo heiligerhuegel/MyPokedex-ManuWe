@@ -128,7 +128,7 @@ function Pokedex() {
     // console.log(param.data);
     return (
       <>
-        <Button variant="primary" onClick={handleShow}>
+        <Button variant="secondary" onClick={handleShow}>
           {param.data.name.toUpperCase()}
         </Button>
 
@@ -174,10 +174,12 @@ function Pokedex() {
           pokemon.map((e) => {
             return (
               <Card
+                className="mx-5 my-5"
                 key={e.id}
                 style={{
                   width: "18rem",
                   background: backGroundColor({ e }),
+                  border: "none",
                 }}
               >
                 <Card.Img variant="top" src={e.sprites.front_default} />
