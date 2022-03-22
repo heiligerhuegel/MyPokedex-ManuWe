@@ -163,6 +163,7 @@ function Pokedex() {
     <Container className="pokedex" fluid>
       <h1>Pokedex</h1>
       <Row>
+        {!pokemon && <h1>im Looking for Pokemon!</h1>}
         {pokemon &&
           pokemon.map((e) => {
             return (
