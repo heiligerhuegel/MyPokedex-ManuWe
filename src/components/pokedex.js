@@ -7,11 +7,6 @@ function Pokedex() {
   // Dataset of Shown Pokemon
   const [pokemon, setPokemon] = useState(null);
 
-  // model View Controller
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   // get first set of Pokemon on Page load
   useEffect(() => {
     let PokemonArry = [];
@@ -124,6 +119,7 @@ function Pokedex() {
     }
   };
 
+  // model View Controller
   // modal function for Detailed View
   function SinglePokemonModal(param) {
     const [show, setShow] = useState(false);
