@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Button, Card, Row, Modal } from "react-bootstrap";
+import { Container, Button, Card, Row, Modal, Spinner } from "react-bootstrap";
 
 function Pokedex() {
   // Dataset of Shown Pokemon
@@ -163,7 +163,13 @@ function Pokedex() {
     <Container className="pokedex" fluid>
       <h1>Pokedex</h1>
       <Row>
-        {!pokemon && <h1>im Looking for Pokemon!</h1>}
+        {!pokemon && (
+          <>
+            <Spinner animation="grow" />
+            <h1>im Looking for Pokemon!</h1>
+            <Spinner animation="grow" />
+          </>
+        )}
         {pokemon &&
           pokemon.map((e) => {
             return (
